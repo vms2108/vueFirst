@@ -51,3 +51,32 @@ var app6 = new Vue ({
     message: 'Текст из инпута'
   }
 })
+
+var app7 = new Vue ({
+  el: '#app7',
+  data: {
+    name:'Имя',
+    age: 12
+  },
+  methods: {
+    ageResult: function(){
+      if (this.age > 17){
+        return 'Вам 18 или больше';
+      } else {
+        return 'Вам меньше 18ти лет';
+      }
+    }
+  }
+})
+
+var app8 = new Vue ({
+  el: '#app8',
+  data: {
+    isBounded : false,
+    color: 'green',
+    size: 'small',
+    height: 100,
+    width: 100,
+    bgcolor: '#030303'
+  }
+})

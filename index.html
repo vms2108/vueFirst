@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FirstVue</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -17,7 +18,8 @@
       </span>
     </div>
     <div id="app3">
-      <span v-if="seen">Меня видно</span>
+      <span v-show="seen">Меня видно</span>
+      <button v-on:click="seen = !seen">Кнопка</button>
     </div>
     <div id="app4">
       <ol>
@@ -34,6 +36,27 @@
       <p>{{message}}</p>
       <input type="text" v-model="message">
     </div>
+    <div id="app7">
+      <p>Возраст</p>
+      <input type="number" v-model="age">
+      <p> {{ ageResult() }} </p>
+    </div>
+    <div id="app8">
+        <div class="standart" v-bind:class="[size, color, {bounded: isBounded}]" v-on:click="isBounded = !isBounded"></div>
+        <br>
+        <p>Цвет (red, blue, yellow, green)</p>
+        <input type="text" v-model="color">
+        <p>Размер (small, big)</p>
+        <input type="text" v-model="size">
+        <br>
+        <div class="standart" v-bind:class="{bounded: isBounded}" v-bind:style="{'background-color': bgcolor, width: width + 'px', height: height + 'px'}" v-on:click="isBounded = !isBounded"></div>
+        <p>Цвет (any)</p>
+        <input type="text" v-model="bgcolor">
+        <p>Ширина</p>
+        <input type="number" v-model="width">
+        <p>Высота</p>
+        <input type="number" v-model="height">
+      </div>
     <script src="js/main.js"></script>
 </body>
 </html>
