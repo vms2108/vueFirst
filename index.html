@@ -9,54 +9,105 @@
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <div id="app">
+    <div id="app" class="main">
+      <h2>Вставка текста через переменную</h2>
       {{message}}
     </div>
-    <div id="app2">
+    <div id="app2" class="main">
+      <h2>Вставка текста через v-bind:title</h2>
       <span v-bind:title="message">
         Курсор наведи, текст будет в диалоговом окошке рядом
       </span>
     </div>
-    <div id="app3">
+    <div id="app3" class="main">
+      <h2>Скрыть и показать элемент через v-show</h2>
       <span v-show="seen">Меня видно</span>
       <button v-on:click="seen = !seen">Кнопка</button>
     </div>
-    <div id="app4">
+    <div id="app4" class="main">
+      <h2>Вставка списка</h2>
       <ol>
         <li v-for="item in items">
           {{item.text}}
         </li>
       </ol>
     </div>
-    <div id="app5">
+    <div id="app5" class="main">
+      <h2>Вызов функции</h2>
       <p>{{message}}</p>
       <button v-on:click=reverseMessage>Перевернуть сообщение</button>
     </div>
-    <div id="app6">
+    <div id="app6" class="main">
+      <h2>Двусторонняя привязка</h2>
       <p>{{message}}</p>
       <input type="text" v-model="message">
     </div>
-    <div id="app7">
+    <div id="app7" class="main">
+      <h2>Ещё один вызов функции</h2>
       <p>Возраст</p>
       <input type="number" v-model="age">
       <p> {{ ageResult() }} </p>
     </div>
-    <div id="app8">
-        <div class="standart" v-bind:class="[size, color, {bounded: isBounded}]" v-on:click="isBounded = !isBounded"></div>
-        <br>
-        <p>Цвет (red, blue, yellow, green)</p>
-        <input type="text" v-model="color">
-        <p>Размер (small, big)</p>
-        <input type="text" v-model="size">
-        <br>
-        <div class="standart" v-bind:class="{bounded: isBounded}" v-bind:style="{'background-color': bgcolor, width: width + 'px', height: height + 'px'}" v-on:click="isBounded = !isBounded"></div>
-        <p>Цвет (any)</p>
-        <input type="text" v-model="bgcolor">
-        <p>Ширина</p>
-        <input type="number" v-model="width">
-        <p>Высота</p>
-        <input type="number" v-model="height">
-      </div>
+    <div id="app8" class="main">
+      <h2>Привязка стилей и классов</h2>
+      <div class="standart" v-bind:class="[size, color, {bounded: isBounded}]" v-on:click="isBounded = !isBounded"></div>
+      <p>Цвет (red, blue, yellow, green)</p>
+      <input type="text" v-model="color">
+      <p>Размер (small, big)</p>
+      <input type="text" v-model="size">
+      <div class="standart" v-bind:class="{bounded: isBounded}" v-bind:style="[colorStyle, sizeStyle]" v-on:click="isBounded = !isBounded"></div>
+      <p>Цвет (в любом формате)</p>
+      <input type="text" v-model="bgcolor">
+      <p>Ширина</p>
+      <input type="number" v-model="width">
+      <p>Высота</p>
+      <input type="number" v-model="height">
+    </div>
+    <div id="app10" class="main">
+      <h2>Это объект А, он связан с объектом Б</h2>
+      <p>Имя</p>
+      <input type="text" v-model="name">
+      <p>{{name}}</p>
+    </div>
+    <div id="app11" class="main">
+      <h2>Это объект Б, он связан с объектом А</h2>
+      <p>Имя</p>
+      <input type="text" v-model="title">
+      <button v-on:click="onClick">Поменять имя в объекте А</button>
+    </div>
+    <div id="app9" class="main">
+      <h2>Наблюдаемое свойство при помощи watchers</h2>
+      <p>Число</p>
+      <input v-model="number">
+      <p>{{result}}</p>
+    </div>
+    <div id="app12" class="main">
+      <h2>Управление html элементом через refs</h2>
+      <p ref="header">Это нужно поменять</p>
+      <button v-on:click="change">Поменять</button>
+    </div>
+    <div id="app13" class="main">
+      <h2>Работа с массивами</h2>
+      <p>Модель телефона</p>
+      <input type="text" v-model="newPhone">
+      <p>Цена</p>
+      <input type="number" v-model="price">
+      <button v-on:click="[push(newPhone,price)]">Добавить</button>
+      <ul>
+        <li v-for="(phone, index) in items">
+          <div class="list">
+            <div class="list__name">
+              {{phone.title}}
+            </div> 
+            <div class="list__price">
+              {{phone.price}}
+            </div>
+            <button class="del" v-on:click="phones.splice(index,1)"></button>
+          </div>
+        </li>
+      </ul>
+      <button v-on:click="isSorted = !isSorted">Сортировать по цене</button>
+    </div>
     <script src="js/main.js"></script>
 </body>
 </html>
