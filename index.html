@@ -108,6 +108,25 @@
       </ul>
       <button v-on:click="isSorted = !isSorted">Сортировать по цене</button>
     </div>
+    <div id="app14" class="main">
+      <h2>Работа с формами</h2>
+      <label>Логин</label>
+      <input type="text" v-model="login" placeholder="Введите логин">
+      <label>Пароль</label>
+      <input type="password" v-model="password" placeholder="Введите пароль">
+      <label>Возраст</label>
+      <input type="number" v-model="age" placeholder="Введите возраст">
+      <label>Дата регистрации</label>
+      <input type="date" v-model="date" placeholder="Введите дату">
+      <label>Комментарий</label>
+      <textarea type="date" v-model="comment" ></textarea>
+      <p>Введённая информация</p>
+      <p>Логин: {{login}}</p>
+      <p>Пароль: {{password}}</p>
+      <p>Возраст: {{age}}</p>
+      <p>Дата регистрации: {{date}}</p>
+      <p style="white-space: pre-line">Комментарий: {{comment}}</p>
+    </div>
     <script src="js/main.js"></script>
 </body>
 </html>

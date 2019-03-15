@@ -194,3 +194,14 @@ var app13 = new Vue ({
 })
 
 var sortByPrice = function (d1, d2) { return (d1.price > d2.price) ? 1 : -1; };
+
+var app14 = new Vue ({
+  el: '#app14',
+  data: {
+    login: '',
+    password: '',
+    date: '',
+    age: 22,
+    comment: ''
+  }
+})
